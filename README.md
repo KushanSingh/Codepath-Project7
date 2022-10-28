@@ -1,21 +1,27 @@
 # Project 7 - WordPress Pen Testing
 
-Time spent: **X** hours spent in total
+Time spent: **8** hours spent in total
 
 > Objective: Find, analyze, recreate, and document **five vulnerabilities** affecting an old version of WordPress
 
 ## Pen Testing Report
 
-### 1. (Required) Vulnerability Name or ID
+### 1. Unauthenticated Persistent Cross Site Scripting (CVE-2015-3440)
 
 - [ ] Summary: 
-  - Vulnerability types:
-  - Tested in version:
-  - Fixed in version: 
+  If the comment text is long enough, it will be truncated when inserted in the database which results in malformed HTML generated on the page. The MySQL TEXT type size limit is 64 kilobytes, so the comment has to be quite long. The attacker can supply any attributes in the allowed HTML tags which leads to the XSS alert.
+  - Vulnerability types: Cross Site Scripting (XSS)
+  - Tested in version: 4.2
+  - Fixed in version: 4.2.1
 - [ ] GIF Walkthrough: 
+![xss1](gifs/xss1.gif)
 - [ ] Steps to recreate: 
+  Create a comment with the following HTML payload:
+  ```html
+  <a title='x onmouseover=alert(unescape(/hello%20world/.source)) style=position:absolute;left:0;top:0;width:5000px;height:5000px  AAAAAAAAAAAA...[64 kb]..AAA'></a>
+  ```
 - [ ] Affected source code:
-  - [Link 1](https://core.trac.wordpress.org/browser/tags/version/src/source_file.php)
+  - None
   
 ### 2. (Required) Vulnerability Name or ID
 
@@ -39,28 +45,6 @@ Time spent: **X** hours spent in total
 - [ ] Affected source code:
   - [Link 1](https://core.trac.wordpress.org/browser/tags/version/src/source_file.php)
 
-### 4. (Optional) Vulnerability Name or ID
-
-- [ ] Summary: 
-  - Vulnerability types:
-  - Tested in version:
-  - Fixed in version: 
-- [ ] GIF Walkthrough: 
-- [ ] Steps to recreate: 
-- [ ] Affected source code:
-  - [Link 1](https://core.trac.wordpress.org/browser/tags/version/src/source_file.php)
-
-### 5. (Optional) Vulnerability Name or ID
-
-- [ ] Summary: 
-  - Vulnerability types:
-  - Tested in version:
-  - Fixed in version: 
-- [ ] GIF Walkthrough: 
-- [ ] Steps to recreate: 
-- [ ] Affected source code:
-  - [Link 1](https://core.trac.wordpress.org/browser/tags/version/src/source_file.php) 
-
 ## Assets
 
 List any additional assets, such as scripts or files
@@ -82,7 +66,7 @@ Describe any challenges encountered while doing the work
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2022] [Kushan Singh]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
