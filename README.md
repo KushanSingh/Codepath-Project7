@@ -21,7 +21,7 @@ Time spent: **8** hours spent in total
   <a title='x onmouseover=alert(unescape(/hello%20world/.source)) style=position:absolute;left:0;top:0;width:5000px;height:5000px  AAAAAAAAAAAA...[64 kb]..AAA'></a>
   ```
 - [ ] Affected source code:
-  - None
+  - None, as this vulerability is dependent upon the MySQL TEXT type size limit.
   
 ### 2. Authenticated Stored Cross-Site Scripting via Image Filename (CVE-2016-7168)
 
