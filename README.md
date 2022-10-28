@@ -6,7 +6,7 @@ Time spent: **8** hours spent in total
 
 ## Pen Testing Report
 
-### 1. Unauthenticated Persistent Cross Site Scripting (CVE-2015-3440)
+### 1. Unauthenticated Stored Cross Site Scripting (CVE-2015-3440)
 
 - [ ] Summary: 
   If the comment text is long enough, it will be truncated when inserted in the database which results in malformed HTML generated on the page. The MySQL TEXT type size limit is 64 kilobytes, so the comment has to be quite long. The attacker can supply any attributes in the allowed HTML tags which leads to the XSS alert.
@@ -23,7 +23,7 @@ Time spent: **8** hours spent in total
 - [ ] Affected source code:
   - None
   
-### 2. (Required) Vulnerability Name or ID
+### 2. Authenticated Stored Cross-Site Scripting via Image Filename (CVE-2016-7168)
 
 - [ ] Summary: 
   - Vulnerability types:
